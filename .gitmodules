@@ -1,0 +1,3 @@
+[submodule "searchbuildR_docker"]
+	path = searchbuildR_docker
+	url = https://github.com/darrenkjr/searchbuildR_docker.git
