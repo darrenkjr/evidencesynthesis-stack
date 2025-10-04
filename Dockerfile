@@ -15,6 +15,7 @@ FROM rocker/shiny-verse:latest AS searchbuildR_builder
 RUN apt-get update && apt-get install -y \
     git \
     build-essential \
+    libgsl-dev \
     && rm -rf /var/lib/apt/lists/* \
     && R -e "install.packages('remotes', repos = 'https://cran.rstudio.com')"
 
