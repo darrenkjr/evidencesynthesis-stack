@@ -9,4 +9,11 @@ services:
         semanticscholar_api_key: ${SEMANTICSCHOLAR_API_KEY}
         oa_email_address: ${OA_EMAIL_ADDRESS}
       restart: always
-      
+
+  searchbuildR:
+    build: 
+      context: 
+        target: searchbuildR_image
+      ports: 
+        "8052:8052"
+      restart: always
