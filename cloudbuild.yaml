@@ -16,7 +16,7 @@ steps:
 # 3. Deploy the Streamlit Service using the pushed image.
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   id: Deploy Streamlit
-  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-streamlit', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-streamlit:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet']
+  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-streamlit', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-streamlit:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet', --update-secrets=semanticscholar_api_key=SEMANTICSCHOLAR_API_KEY:latest,OA_EMAIL_ADDRESS=oa_email_address:latest]
 
 # --- R SHINY SERVICE ---
 # 4. Build the R Shiny Image by targeting the specific Dockerfile stage.
@@ -31,7 +31,7 @@ steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   id: Deploy R Shiny
-  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-rshiny', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-rshiny:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet']
+  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-rshiny', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-rshiny:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet','--port', '3838']
 
 options:
   logging: CLOUD_LOGGING_ONLY
