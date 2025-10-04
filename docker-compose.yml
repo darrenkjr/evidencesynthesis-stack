@@ -1,0 +1,12 @@
+services: 
+  automated_citation_search_st: 
+    build: 
+      context: 
+        target: automated_citation_search_st_image
+      ports: 
+        "8051:8051"
+      environment: 
+        semanticscholar_api_key: ${SEMANTICSCHOLAR_API_KEY}
+        oa_email_address: ${OA_EMAIL_ADDRESS}
+      restart: always
+      
