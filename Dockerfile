@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/darrenkjr/automated_citationsearch_st.git automated_citation_search_app
 WORKDIR /automated_citation_search_app
 RUN pip --no-cache-dir install -r requirements.txt
-CMD streamlit run main.py
+CMD streamlit run main.py --server.port ${PORT}
 
 #setup R shiny environment 
 FROM rocker/shiny-verse:latest AS searchbuildR_builder
