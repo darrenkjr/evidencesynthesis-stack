@@ -20,4 +20,5 @@ RUN apt-get update && apt-get install -y \
     && R -e "install.packages('remotes', repos = 'https://cran.rstudio.com')"
 
 RUN R -e "remotes::install_github('darrenkjr/searchbuildR_docker')"
+CMD R -e "options(shiny.port = 6909)"
 CMD R -e "library(searchbuildR); searchbuildR::run_app()"
