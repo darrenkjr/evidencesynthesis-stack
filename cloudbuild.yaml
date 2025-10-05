@@ -38,7 +38,7 @@ steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   id: Deploy R Shiny
-  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-rshiny', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-rshiny:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet','--port', '3838']
+  args: ['gcloud', 'run', 'deploy', 'evidencesynthesis-stack-rshiny', '--image', 'australia-southeast2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/evidencesynthesis-stack-rshiny:$COMMIT_SHA', '--region', 'australia-southeast2', '--platform', 'managed', '--allow-unauthenticated', '--quiet','--port', '6909']
 
 options:
   logging: CLOUD_LOGGING_ONLY
